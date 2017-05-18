@@ -1,0 +1,25 @@
+<div class="container padded">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h1><%= @cocktail.name %></h1>
+      <ul>
+        <!-- <li> -->
+          <% @cocktail.doses.each do |dose| %>
+            <%= dose.description %>
+            <hr>
+            <% @cocktail.ingredients.each do |ingredient| %>
+              <%= ingredient.name %>
+            <% end %>
+          <% end %>
+        <!-- </li> -->
+      </ul>
+      <br><br>
+      <%= simple_form_for([ @cocktail, @dose ]) do |form| %>
+        <%= form.association :ingredient %>
+        <%= form.input :description %>
+        <%= form.button :submit, class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
