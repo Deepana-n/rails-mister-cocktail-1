@@ -2,17 +2,20 @@
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
       <h1><%= @cocktail.name %></h1>
-      <ul>
-        <!-- <li> -->
-          <% @cocktail.doses.each do |dose| %>
-            <%= dose.description %>
-            <hr>
-            <% @cocktail.ingredients.each do |ingredient| %>
-              <%= ingredient.name %>
-            <% end %>
-          <% end %>
-        <!-- </li> -->
-      </ul>
+        <% @cocktail.doses.each do |dose| %>
+          <div class="list-dose">
+          <ul>
+            <li class="list-inline">
+              <%= dose.description %> | <%= dose.ingredient.name %>
+              <%= link_to cocktail_path(@cocktail),
+                    method: :delete,
+                    data: {confirm: "Sure?"} do %>
+                <i class="fa fa-trash-o"></i>
+              <% end %>
+            </li>
+          </ul>
+          </div>
+        <% end %>
       <br><br>
       <%= simple_form_for([ @cocktail, @dose ]) do |form| %>
         <%= form.association :ingredient %>
