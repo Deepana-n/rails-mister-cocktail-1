@@ -15,7 +15,9 @@
     <%= yield %>
     <%= render "shared/footer" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= cloudinary_js_config %>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <%= yield :after_js %>
   </body>
 </html>
+
