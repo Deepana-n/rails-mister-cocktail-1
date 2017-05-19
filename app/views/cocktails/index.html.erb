@@ -7,8 +7,13 @@
   <br>
   <div class="row">
     <% @cocktails.each do |cocktail| %>
+      <% if cocktail.photos.size != 0 %>
+        <% picture_url = cl_image_path cocktail.photos[0].path %>
+      <% else %>
+        <% picture_url = image_path(@pics[rand(@pics.size)]) %>
+      <% end %>
       <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path @pics[rand(@pics.size)] %>);">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= picture_url %>');">
           <div class="card-description">
             <h2><%= cocktail.name %></h2>
           </div>
