@@ -1,24 +1,17 @@
-# README
+# Cocktail Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting started
 
-Things you may want to cover:
+* rails s
+* http://localhost:3000/
 
-* Ruby version
+## Objective
 
-* System dependencies
+### Build a three-model Rails app with a restaurant and anonymous reviews
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Draw schema @db.lewagon.com with n:n relationship
+* Validate all model tests
+* Create a seed
+* Scrap info by building a Cocktail Scraper as a service
+* Refactor views using layouts and partials
+* Use rails helper (link_to, form_for, ...)
